@@ -24,13 +24,13 @@ pipeline{
         }
         stage('Build and tag'){
             steps{
-                sh 'docker build -t vinay24102002/puneetrajkumar2 .'
+                sh 'docker build -t vinay24102002/puneetrajkumar3 .'
             }
         }
         stage('Containerisation'){
             steps{
                 sh '''
-                docker run -it -d --name c3 -p 9005:8080 vinay24102002/puneetrajkumar2 
+                docker run -it -d --name c4 -p 9004:8080 vinay24102002/puneetrajkumar3 
                 '''
             }
         }
@@ -39,13 +39,14 @@ pipeline{
                         script {
                             withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                                 sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
-                            }
+                            } 
                         }
-                    }
-        }
+                    }  
+        }       
+        
          stage('Pushing image to repository'){
             steps{
-                sh 'docker push vinayba6666@gamil.com/puneetrajkumar2'
+                sh 'Docker Hub push vinay24102002/puneetrajkumar3'
             }
         }
         
