@@ -24,13 +24,13 @@ pipeline{
         }
         stage('Build and tag'){
             steps{
-                sh 'docker build -t VinayGowdru-cloud/puneetrajkumar .'
+                sh 'docker build -t vinay24102002/puneetrajkumar .'
             }
         }
         stage('Containerisation'){
             steps{
                 sh '''
-                docker run -it -d --name c7 -p 9007:8080 VinayGowdru-cloud/puneetrajkumar 
+                docker run -it -d --name c7 -p 9007:8080 vinay24102002/puneetrajkumar 
                 '''
             }
         }
@@ -45,7 +45,7 @@ pipeline{
         }
          stage('Pushing image to repository'){
             steps{
-                sh 'docker push VinayGowdru-cloud7/puneetrajkumar'
+                sh 'docker push vinay24102002/puneetrajkumar'
             }
         }
         
