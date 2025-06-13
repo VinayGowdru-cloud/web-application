@@ -30,7 +30,7 @@ pipeline{
         stage('Containerisation'){
             steps{
                 sh '''
-                docker run -it -d --name c3 -p 9003:8080 vinay24102002/puneetrajkumar4 
+                docker run -it -d --name c2 -p 9003:8080 vinay24102002/puneetrajkumar4 
                 '''
             }
         }
