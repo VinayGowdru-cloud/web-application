@@ -24,13 +24,13 @@ pipeline{
         }
         stage('Build and tag'){
             steps{
-                sh 'docker build -t vinay24102002/puneetrajkumar3 .'
+                sh 'docker build -t vinay24102002/puneetrajkumar4 .'
             }
         }
         stage('Containerisation'){
             steps{
                 sh '''
-                docker run -it -d --name c4 -p 9004:8080 vinay24102002/puneetrajkumar3 
+                docker run -it -d --name c3 -p 9003:8080 vinay24102002/puneetrajkumar4 
                 '''
             }
         }
@@ -46,7 +46,7 @@ pipeline{
         
          stage('Pushing image to repository'){
             steps{
-                sh 'Docker Hub push vinay24102002/puneetrajkumar3'
+                sh 'docker push vinay24102002/puneetrajkumar4 .'
             }
         }
         
